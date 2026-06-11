@@ -1,10 +1,10 @@
 /* Color Palette & Fluid System Settings */
 :root {
-    --aero-bg: rgba(10, 15, 30, 0.35);
-    --aero-card: rgba(255, 255, 255, 0.03);
-    --aero-card-hover: rgba(255, 255, 255, 0.07);
-    --aero-border: rgba(255, 255, 255, 0.08);
-    --aero-border-bright: rgba(255, 255, 255, 0.2);
+    --aero-bg: rgba(6, 10, 23, 0.25);
+    --aero-card: rgba(255, 255, 255, 0.02);
+    --aero-card-hover: rgba(255, 255, 255, 0.06);
+    --aero-border: rgba(255, 255, 255, 0.06);
+    --aero-border-bright: rgba(255, 255, 255, 0.18);
     --glow-cyan: #00f2ff;
     --glow-blue: #3b82f6;
     --glow-magenta: #ff007f;
@@ -12,7 +12,7 @@
     --text-secondary: #cbd5e1;
 }
 
-/* Base Document Reset */
+/* Base Document Reset & Layout Core */
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@
 
 body {
     min-height: 100vh;
-    background-color: #030712;
+    background-color: #02040a;
     color: var(--text-primary);
     display: flex;
     justify-content: center;
@@ -32,7 +32,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Background Engine - Fluid Animation Circles */
+/* Background Engine - Smooth Floating Fluid Orbs */
 .glass-bg-wrapper {
     position: fixed;
     width: 100vw;
@@ -46,52 +46,42 @@ body {
 .plasma-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px);
+    filter: blur(140px);
     mix-blend-mode: screen;
-    animation: floatingOrb 22s infinite alternate ease-in-out;
+    animation: floatingOrb 18s infinite alternate ease-in-out;
 }
 
-.po-1 { width: 600px; height: 600px; background: rgba(59, 130, 246, 0.35); top: -10%; left: -5%; }
-.po-2 { width: 700px; height: 700px; background: rgba(217, 70, 239, 0.25); bottom: -15%; right: -5%; animation-delay: -5s; }
-.po-3 { width: 500px; height: 500px; background: rgba(0, 242, 255, 0.2); top: 35%; left: 65%; animation-delay: -10s; }
+.po-1 { width: 700px; height: 700px; background: rgba(59, 130, 246, 0.4); top: -15%; left: -10%; }
+.po-2 { width: 800px; height: 800px; background: rgba(217, 70, 239, 0.28); bottom: -20%; right: -10%; animation-delay: -4s; }
+.po-3 { width: 600px; height: 600px; background: rgba(0, 242, 255, 0.25); top: 30%; left: 60%; animation-delay: -8s; }
 
 /* Rotating Ambient Light Ring */
 .fluid-ring {
     position: absolute;
-    width: 800px;
-    height: 800px;
+    width: 900px;
+    height: 900px;
     border-radius: 41% 59% 70% 30% / 47% 62% 38% 53%;
-    background: linear-gradient(45deg, rgba(0, 242, 255, 0.1), rgba(255, 0, 127, 0.1));
-    top: 10%;
-    left: 10%;
-    animation: fluidRotate 28s infinite linear;
-    filter: blur(60px);
+    background: linear-gradient(45deg, rgba(0, 242, 255, 0.12), rgba(255, 0, 127, 0.12));
+    top: 5%;
+    left: 5%;
+    animation: fluidRotate 24s infinite linear;
+    filter: blur(80px);
 }
 
-@keyframes floatingOrb {
-    0% { transform: translateY(0px) scale(1) rotate(0deg); }
-    100% { transform: translateY(60px) scale(1.15) rotate(180deg); }
-}
-
-@keyframes fluidRotate {
-    0% { transform: rotate(0deg); border-radius: 41% 59% 70% 30% / 47% 62% 38% 53%; }
-    100% { transform: rotate(360deg); border-radius: 50% 45% 55% 60% / 40% 55% 45% 60%; }
-}
-
-/* Master Glass Windows Aero Chassis */
+/* Master Glass Windows Aero Frame Chassis */
 .aero-mainframe {
     position: relative;
     z-index: 10;
     width: 100%;
     max-width: 1100px;
     background: var(--aero-bg);
-    backdrop-filter: blur(40px) saturate(220%);
-    -webkit-backdrop-filter: blur(40px) saturate(220%);
+    backdrop-filter: blur(50px) saturate(250%);
+    -webkit-backdrop-filter: blur(50px) saturate(250%);
     border: 1px solid var(--aero-border);
     border-radius: 32px;
     padding: 60px;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7),
-                inset 0 1px 2px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85),
+                inset 0 1px 3px rgba(255, 255, 255, 0.2);
 }
 
 /* Header UI Elements */
@@ -103,7 +93,7 @@ body {
 .badge-glow {
     display: inline-block;
     padding: 6px 16px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--aero-border-bright);
     border-radius: 100px;
     font-size: 0.75rem;
@@ -111,66 +101,32 @@ body {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--glow-cyan);
-    box-shadow: 0 0 15px rgba(0, 242, 255, 0.15);
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 3.8rem;
-    font-weight: 900;
-    letter-spacing: -1.5px;
-    background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .subtitle-glow {
     color: var(--text-secondary);
     font-size: 1.25rem;
-    margin-top: 10px;
-    opacity: 0.8;
+    margin-top: 12px;
+    opacity: 0.85;
 }
 
 /* Content Layout Architecture */
 .aero-grid {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-columns: 1.25fr 0.75fr;
     gap: 30px;
 }
 
-/* Ultra-Transparent Card UI Components */
+/* Transparent Glass Card UI Layouts */
 .glass-card {
     background: var(--aero-card);
     border: 1px solid var(--aero-border);
     border-radius: 20px;
     padding: 35px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
-}
-
-.glass-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
-    transition: 0.6s;
-}
-
-.glass-card:hover::before {
-    left: 100%;
-}
-
-.glass-card:hover {
-    transform: translateY(-5px);
-    background: var(--aero-card-hover);
-    border-color: var(--aero-border-bright);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 h2 {
@@ -196,7 +152,7 @@ p {
 
 .glass-card-sub {
     flex: 1;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.35);
     border: 1px solid var(--aero-border);
     border-radius: 14px;
     padding: 20px;
@@ -225,7 +181,7 @@ p {
 .stat-row span { color: #94a3b8; }
 .stat-row .metric { color: #ffffff; font-weight: 600; }
 
-/* Interactive Sheen Image Box */
+/* Sheen-Animated Image Elements */
 .img-interactive {
     padding: 12px;
     cursor: pointer;
@@ -237,6 +193,22 @@ p {
     border-radius: 12px;
 }
 
+/* Light Sheen Overlay Animation Effect */
+.img-sheen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: skewX(-25deg);
+}
+
+.img-interactive:hover .img-sheen::after {
+    animation: shineEffect 0.85s ease-out;
+}
+
 .model-view-img {
     width: 100%;
     height: auto;
@@ -245,7 +217,7 @@ p {
 }
 
 .img-interactive:hover .model-view-img {
-    transform: scale(1.05);
+    transform: scale(1.04) rotate(0.5deg);
 }
 
 .img-meta {
@@ -259,7 +231,7 @@ p {
     overflow-x: auto;
     border-radius: 12px;
     border: 1px solid var(--aero-border);
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .aero-table {
@@ -269,7 +241,7 @@ p {
 }
 
 .aero-table th {
-    background: rgba(255,255,255,0.02);
+    background: rgba(255, 255, 255, 0.03);
     padding: 18px;
     font-size: 0.9rem;
     font-weight: 600;
@@ -284,7 +256,7 @@ p {
 }
 
 .qty-pill {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--aero-border-bright);
     padding: 4px 10px;
     border-radius: 6px;
@@ -293,11 +265,17 @@ p {
 }
 
 .table-img-box {
-    width: 45px;
+    width: 60px;
     height: 45px;
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
     border: 1px solid var(--aero-border);
+    background: rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+}
+
+.table-img-box:hover {
+    transform: scale(1.2);
 }
 
 .table-img-box img {
@@ -306,7 +284,7 @@ p {
     object-fit: cover;
 }
 
-/* Linear Fluid Timeline Engine */
+/* Linear Timeline Design Layouts */
 .aero-timeline {
     position: relative;
     padding-left: 35px;
@@ -335,31 +313,33 @@ p {
     top: 6px;
     width: 14px;
     height: 14px;
-    background: #030712;
+    background: #02040a;
     border: 3px solid var(--glow-cyan);
     border-radius: 50%;
     box-shadow: 0 0 10px var(--glow-cyan);
     z-index: 5;
-    transition: background 0.3s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .timeline-node:hover .node-indicator {
     background: var(--glow-magenta);
     border-color: var(--glow-magenta);
-    box-shadow: 0 0 12px var(--glow-magenta);
+    box-shadow: 0 0 15px var(--glow-magenta);
+    transform: scale(1.3);
 }
 
 .node-body {
-    background: rgba(255, 255, 255, 0.01);
+    background: rgba(255, 255, 255, 0.005);
     border: 1px solid var(--aero-border);
     border-radius: 14px;
     padding: 25px;
-    transition: border 0.3s, background 0.3s;
+    transition: all 0.3s ease;
 }
 
 .timeline-node:hover .node-body {
-    border-color: rgba(255,255,255,0.15);
-    background: rgba(255, 255, 255, 0.02);
+    border-color: var(--aero-border-bright);
+    background: rgba(255, 255, 255, 0.03);
+    padding-left: 30px;
 }
 
 .node-step {
@@ -399,6 +379,74 @@ p {
     border-top: 1px solid rgba(255, 255, 255, 0.04);
     font-size: 0.85rem;
     color: #64748b;
+}
+
+/* --- ANIMATION SPECIFICATION CORE ENGINE --- */
+
+/* Entrance Fade In Class */
+.animate-fade-in {
+    animation: fadeInContainer 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Text Element Loading Slide Reveal */
+.text-reveal {
+    background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slideUpReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pulsing Badge Glow Loops */
+.animate-pulse-glow {
+    animation: badgePulse 2.5s infinite ease-in-out;
+}
+
+/* Micro Interaction Dynamic Lift Transitions */
+.hover-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-6px) scale(1.01);
+    background: var(--aero-card-hover);
+    border-color: var(--aero-border-bright);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5),
+                inset 0 0 15px rgba(255, 255, 255, 0.02);
+}
+
+/* Keyframe Calculations */
+@keyframes fadeInContainer {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpReveal {
+    0% { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes badgePulse {
+    0% { box-shadow: 0 0 10px rgba(0, 242, 255, 0.15); border-color: var(--aero-border-bright); }
+    50% { box-shadow: 0 0 22px rgba(0, 242, 255, 0.4); border-color: rgba(0, 242, 255, 0.5); color: #ffffff; }
+    100% { box-shadow: 0 0 10px rgba(0, 242, 255, 0.15); border-color: var(--aero-border-bright); }
+}
+
+@keyframes shineEffect {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
+
+@keyframes floatingOrb {
+    0% { transform: translateY(0px) scale(1) rotate(0deg); }
+    100% { transform: translateY(50px) scale(1.12) rotate(180deg); }
+}
+
+@keyframes fluidRotate {
+    0% { transform: rotate(0deg); border-radius: 41% 59% 70% 30% / 47% 62% 38% 53%; }
+    100% { transform: rotate(360deg); border-radius: 50% 45% 55% 60% / 40% 55% 45% 60%; }
 }
 
 /* Responsive Adaptive Viewports */
