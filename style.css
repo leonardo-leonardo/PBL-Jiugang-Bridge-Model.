@@ -1,458 +1,432 @@
-/* Exact Windows XP Luna Palette & Solid Definition Engine */
+/* Windows XP Luna Palette Definitions mixed with Soft Aero Transparency */
 :root {
-    --luna-desktop-blue: #5a7edc;
-    --luna-window-beige: #ece9d8;
+    --xp-blue: #245edb;
+    --xp-blue-light: #5785f6;
+    --xp-orange: #ff9900;
+    --xp-green: #2e8b57;
+    --xp-soft-beige: #ece9d8;
     
-    /* Exact Blue Header Gradients */
-    --luna-blue-top-start: #0058e6;
-    --luna-blue-top-end: #002cd0;
+    /* Aero Glass Configurations */
+    --aero-surface: rgba(236, 233, 216, 0.45); /* Translucent XP Beige */
+    --aero-card: rgba(255, 255, 255, 0.65);
+    --aero-card-hover: rgba(255, 255, 255, 0.85);
+    --aero-border: rgba(36, 94, 219, 0.25);
+    --aero-border-bright: rgba(36, 94, 219, 0.5);
     
-    /* Panel Accents */
-    --luna-sidebar-blue-start: #749af6;
-    --luna-sidebar-blue-end: #215dc6;
-    --luna-sidebar-header-light: #fcfefe;
-    --luna-sidebar-header-dark: #dff0f9;
-    
-    /* Decorative Blocks Colors */
-    --luna-accent-orange: #ff9900;
-    --luna-accent-green: #2e8b57;
-    
-    /* Borders & Inputs */
-    --luna-border-dark-blue: #0046d5;
-    --luna-border-grey: #d4d0c8;
-    --luna-input-blue: #7f9db9;
+    --text-dark: #111827;
+    --text-muted: #4b5563;
 }
 
-/* Document Framework Core Setup */
+/* Base Setup */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Tahoma", "Segoe UI", sans-serif;
+    font-family: "Tahoma", "Segoe UI", system-ui, sans-serif;
 }
 
 body {
-    background-color: var(--luna-desktop-blue);
     min-height: 100vh;
+    background-color: #3b66c4; /* Base XP Desktop Blue Fallback */
+    color: var(--text-dark);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px 15px;
+    padding: 60px 20px;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* Main Outer Window Frame Setup */
-.luna-wrapper {
-    width: 100%;
-    max-width: 1160px;
-    background-color: var(--luna-window-beige);
-    border: 3px solid var(--luna-border-dark-blue);
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.35);
-    display: flex;
-    flex-direction: column;
-}
-
-/* Solid Blue Header Bar styling */
-.luna-top-header {
-    background: linear-gradient(to bottom, var(--luna-blue-top-start) 0%, #0046d5 12%, #0055e3 45%, #0044d0 75%, var(--luna-blue-top-end) 100%);
-    padding: 6px 10px;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-}
-
-.header-icon {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin-right: 6px;
-}
-
-/* Functional Square Sized Window Options buttons */
-.header-control-box {
-    display: flex;
-    gap: 3px;
-}
-
-.control-square {
-    width: 22px;
-    height: 22px;
-    font-size: 0.75rem;
-    font-weight: 1000;
-    border-radius: 3px;
-    border: 1px solid #ffffff;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: inset -1px -1px 2px rgba(0,0,0,0.4);
-}
-
-.btn-minimize, .btn-maximize {
-    background: linear-gradient(to bottom, #3c91ff 0%, #1566df 100%);
-    color: #ffffff;
-}
-
-.btn-exit {
-    background: linear-gradient(to bottom, #e76641 0%, #c2350e 100%);
-    color: #ffffff;
-    border-color: #ff9a7b;
-}
-
-.control-square:active {
-    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.7);
-}
-
-/* Classic Ribbon Strip Options */
-.luna-options-ribbon {
-    background-color: #f1efe2;
-    padding: 4px 8px;
-    border-bottom: 1px solid var(--luna-border-grey);
-    font-size: 0.75rem;
-    display: flex;
-    gap: 14px;
-    color: #000000;
-}
-
-.ribbon-item {
-    cursor: pointer;
-    padding: 2px 6px;
-}
-
-.ribbon-item:hover {
-    background-color: #316ac5;
-    color: #ffffff;
-}
-
-/* System Address Input Location Panel bar styling */
-.luna-url-row {
-    background-color: #f1efe2;
-    padding: 4px 10px;
-    border-bottom: 2px solid var(--luna-border-grey);
-    display: flex;
-    align-items: center;
-    font-size: 0.75rem;
-    gap: 8px;
-}
-
-.url-label {
-    color: #555555;
-}
-
-.url-field-box {
-    background: #ffffff;
-    border: 1px solid var(--luna-input-blue);
-    flex: 1;
-    padding: 3px 6px;
-    font-size: 0.8rem;
-    color: #000000;
-}
-
-.url-go-btn {
-    padding: 2px 10px;
-    background: #f1efe2;
-    border: 1px solid var(--luna-input-blue);
-    font-size: 0.75rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Inner Structural Panel View Layout Container */
-.luna-body-frame {
-    display: flex;
-    flex: 1;
-    background-color: #ffffff;
-}
-
-/* Left Panel - Deep Royal Blue Sidebar Folders Styling */
-.luna-left-panel {
-    width: 250px;
-    background: linear-gradient(to bottom, var(--luna-sidebar-blue-start) 0%, var(--luna-sidebar-blue-end) 100%);
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    border-right: 1px solid var(--luna-border-dark-blue);
-}
-
-.task-category-box {
-    background-color: #ffffff;
-    border-radius: 4px;
+/* Background Layers Engine - Translucent Windows Aero over XP Bliss Colors */
+.luna-ambient-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
     overflow: hidden;
+    background: linear-gradient(135deg, #245edb 0%, #5785f6 50%, #80af20 100%); /* The Bliss Palette */
+}
+
+.aero-blur-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    mix-blend-mode: normal;
+    opacity: 0.6;
+    animation: floatingOrb 25s infinite alternate ease-in-out;
+}
+
+.orb-xp-blue { width: 600px; height: 600px; background: #0046d5; top: -10%; left: -5%; }
+.orb-xp-green { width: 700px; height: 700px; background: #31a62a; bottom: -15%; right: -5%; animation-delay: -6s; }
+.orb-xp-orange { width: 450px; height: 450px; background: #ff9900; top: 25%; left: 60%; animation-delay: -12s; }
+
+/* Master Chassis Framework Container with Glass Backdrop Filters */
+.luna-mainframe {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1100px;
+    background: var(--aero-surface);
+    backdrop-filter: blur(35px) saturate(170%);
+    -webkit-backdrop-filter: blur(35px) saturate(170%);
+    border: 2px solid var(--xp-blue);
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35),
+                inset 0 1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Hero Section Typography Header rules */
+.luna-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.badge-luna {
+    display: inline-block;
+    padding: 5px 14px;
+    background: var(--xp-blue);
     border: 1px solid #ffffff;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.category-title-bar {
-    background: linear-gradient(to right, var(--luna-sidebar-header-light) 0%, var(--luna-sidebar-header-dark) 100%);
-    color: #215dc6;
-    font-weight: bold;
-    font-size: 0.8rem;
-    padding: 5px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.alternative-blue-box .category-title-bar {
-    background: linear-gradient(to right, #7ea8f9 0%, #467df2 100%);
-    color: #ffffff;
-}
-
-.category-links {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    border-radius: 100px;
     font-size: 0.75rem;
-}
-
-.category-links a {
-    color: #215dc6;
-    text-decoration: none;
-}
-
-.category-links a:hover {
-    text-decoration: underline;
-    color: #0046d5;
-}
-
-/* Right Side - Flat Beige and White Content Area Layout */
-.luna-right-workspace {
-    flex: 1;
-    background-color: #ffffff;
-    padding: 25px;
-    overflow-y: auto;
-    height: 620px;
-}
-
-.workspace-card {
-    margin-bottom: 30px;
-}
-
-.section-title-header {
-    font-size: 1.2rem;
-    color: #000080;
-    border-bottom: 2px solid #9bc3ff;
-    padding-bottom: 4px;
-    margin-bottom: 12px;
     font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(36, 94, 219, 0.3);
 }
 
-.text-container-block p {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: #000000;
+.text-glow {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 70, 213, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
+    margin-top: 10px;
 }
 
-/* Pictures Box Container presentation modules */
-.file-preview-grid {
+.subtitle-luna {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-top: 8px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Work Grid Setup */
+.luna-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 30px;
+}
+
+/* Clean Translucent XP-Styled Cards */
+.glass-card {
+    background: var(--aero-card);
+    border: 1px solid var(--aero-border);
+    border-radius: 16px;
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 1.45rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--xp-blue);
+    border-bottom: 2px solid var(--xp-soft-beige);
+    padding-bottom: 6px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+/* Nested Metric Statistics Blocks Layout modules */
+.nested-flex {
     display: flex;
     gap: 20px;
 }
 
-.file-card-box {
-    background: #fafafa;
-    border: 1px solid var(--luna-border-grey);
-    padding: 8px;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
-    text-align: center;
-    width: 230px;
+.glass-card-sub {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--xp-soft-beige);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.image-inner-border {
-    width: 100%;
-    height: 145px;
-    background-color: #e5e5e5;
+.spec-header {
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+}
+
+.spec-real .spec-header { color: #d97706; border-bottom: 1px solid rgba(217, 119, 6, 0.2); }
+.spec-model .spec-header { color: var(--xp-green); border-bottom: 1px solid rgba(46, 139, 87, 0.2); }
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-row span { color: var(--text-muted); }
+.stat-row .metric { color: var(--text-dark); font-weight: bold; }
+
+/* Image Presentations Grid Frame animations handles */
+.img-interactive {
+    padding: 12px;
+    cursor: pointer;
+}
+
+.img-sheen {
+    position: relative;
     overflow: hidden;
-    border: 1px solid var(--luna-input-blue);
+    border-radius: 10px;
+    border: 1px solid var(--xp-soft-beige);
 }
 
-.image-inner-border img {
+.img-sheen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-20deg);
+}
+
+.img-interactive:hover .img-sheen::after {
+    animation: shineEffect 0.8s ease-out;
+}
+
+.model-view-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.img-interactive:hover .model-view-img {
+    transform: scale(1.02);
+}
+
+.img-meta { padding: 15px 8px 4px 8px; }
+.img-meta h3 { font-size: 1.1rem; margin-bottom: 4px; color: var(--xp-blue); }
+.img-meta p { font-size: 0.9rem; color: var(--text-muted); }
+
+/* Material Matrix Sheet Display Tables rules */
+.glass-table-scroller {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--xp-soft-beige);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.luna-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.luna-table th {
+    background: rgba(36, 94, 219, 0.08);
+    padding: 16px;
+    font-weight: bold;
+    color: var(--xp-blue);
+    border-bottom: 2px solid var(--xp-soft-beige);
+}
+
+.luna-table td {
+    padding: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.qty-pill {
+    background: rgba(36, 94, 219, 0.05);
+    border: 1px solid var(--aero-border-bright);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--xp-blue);
+}
+
+.table-img-box {
+    width: 55px;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--xp-soft-beige);
+}
+
+.table-img-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.2s ease;
 }
 
-.image-inner-border img:hover {
-    transform: scale(1.03);
-}
-
-.file-card-label {
-    font-size: 0.75rem;
-    margin-top: 6px;
-    color: #333333;
-    font-weight: bold;
-}
-
-/* Data blocks presentation configuration styling split channels */
-.data-split-container {
-    display: flex;
-    gap: 20px;
-}
-
-.split-data-block {
-    flex: 1;
-    border: 1px solid var(--luna-input-blue);
-    border-radius: 3px;
-    background-color: #faf9f6;
-}
-
-.data-header-stripe {
-    padding: 6px 12px;
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-.orange-stripe { background-color: var(--luna-accent-orange); }
-.green-stripe { background-color: var(--luna-accent-green); }
-
-.stripe-content-list {
-    list-style: none;
-    padding: 10px 12px;
-    font-size: 0.8rem;
-}
-
-.list-row-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
-    border-bottom: 1px solid var(--luna-window-beige);
-    color: #000000;
-}
-.list-row-item:last-child { border-bottom: none; }
-.list-row-item .lbl { font-weight: bold; color: #444444; }
-
-/* Grid Table Architecture specs specs sheets */
-.retro-table-wrapper {
-    border: 1px solid var(--luna-input-blue);
-}
-
-.luna-grid-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.8rem;
-    text-align: left;
-    color: #000000;
-}
-
-.luna-grid-table th {
-    background-color: #f1efe2;
-    padding: 8px;
-    border-right: 1px solid var(--luna-border-grey);
-    border-bottom: 1px solid var(--luna-border-grey);
-    color: #333333;
-    font-weight: bold;
-}
-
-.luna-grid-table td {
-    padding: 8px;
-    border-bottom: 1px solid #e8e6db;
-    border-right: 1px solid #e8e6db;
-    vertical-align: middle;
-}
-
-.table-sys-icon {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin-right: 6px;
-}
-
-.table-resource-thumbnail {
-    width: 45px;
-    height: 32px;
-    object-fit: cover;
-    border: 1px solid var(--luna-input-blue);
-}
-
-/* Timeline Blocks Sequence list layout rules */
-.luna-vertical-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.timeline-step-block {
-    border: 1px solid var(--luna-border-grey);
-    background: #fdfdfb;
-    padding: 15px;
+/* Engineering Progression Progress Tracks Timelines */
+.luna-timeline {
     position: relative;
-    border-radius: 3px;
+    padding-left: 35px;
+    margin-top: 15px;
 }
 
-.step-badge-flag {
+.luna-timeline::before {
+    content: '';
     position: absolute;
-    top: -9px;
-    right: 12px;
-    background-color: var(--luna-sidebar-blue-end);
-    color: #ffffff;
-    font-size: 0.7rem;
-    font-weight: bold;
-    padding: 2px 7px;
+    left: 6px;
+    top: 8px;
+    width: 3px;
+    height: calc(100% - 16px);
+    background: linear-gradient(to bottom, var(--xp-blue), var(--xp-green), var(--xp-orange));
     border-radius: 2px;
 }
 
-.step-main-title {
-    font-size: 0.95rem;
-    color: var(--luna-blue-top-end);
-    margin-bottom: 6px;
+.timeline-node {
+    position: relative;
+    margin-bottom: 30px;
+}
+.timeline-node:last-child { margin-bottom: 0; }
+
+.node-indicator {
+    position: absolute;
+    left: -35px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border: 3.5px solid var(--xp-blue);
+    border-radius: 50%;
+    z-index: 5;
+    transition: all 0.25s ease;
 }
 
-.step-narrative-text {
-    font-size: 0.8rem;
-    line-height: 1.5;
-    color: #222222;
+.timeline-node:hover .node-indicator {
+    background: var(--xp-orange);
+    border-color: var(--xp-orange);
+    transform: scale(1.25);
 }
 
-.step-rationale-box {
-    margin-top: 8px;
-    padding: 6px 10px;
-    background: #eef4ff;
-    border-left: 3px solid #3c91ff;
+.node-body {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.timeline-node:hover .node-body {
+    border-color: var(--aero-border-bright);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.node-step {
     font-size: 0.75rem;
-    color: #333333;
+    font-weight: bold;
+    color: var(--xp-green);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.node-body h3 {
+    font-size: 1.15rem;
+    margin: 3px 0 10px 0;
+    color: var(--text-dark);
+}
+
+.node-rationale {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    color: #4b5563;
     font-style: italic;
 }
 
-/* Bottom Information status bar strip alignment configurations */
-.luna-bottom-bar {
-    background-color: #f1efe2;
-    border-top: 1px solid var(--luna-border-grey);
-    padding: 4px 8px;
-    font-size: 0.7rem;
-    display: flex;
-    justify-content: space-between;
-    color: #000000;
+.node-rationale::before {
+    content: "Engineering Rationale: ";
+    font-weight: bold;
+    color: var(--xp-blue);
+    font-style: normal;
 }
 
-.status-segment-cell {
-    padding: 0 6px;
-    border-right: 1px solid var(--luna-border-grey);
-}
-.status-segment-cell:last-child { border-right: none; }
-.status-right-aligned { font-weight: bold; color: #444444; }
-
-/* Micro Interaction Pop-up Window Trigger Loading Animation */
-.animate-popup {
-    animation: spawnFrameWindow 0.3s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
-}
-
-@keyframes spawnFrameWindow {
-    0% { transform: scale(0.97); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+/* Page Footers */
+.luna-footer {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.85rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Device Screen Size Adaptability Fixes */
-@media (max-width: 820px) {
-    .luna-body-frame { flex-direction: column; }
-    .luna-left-panel { width: 100%; border-right: none; border-bottom: 1px solid var(--luna-border-dark-blue); }
-    .data-split-container, .file-preview-grid { flex-direction: column; }
+/* --- MOTION CAPTURE CORE INTERACTION ENGINE --- */
+.animate-fade-in {
+    animation: fadeInFrame 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+    animation: badgePulse 2.5s infinite ease-in-out;
+}
+
+.hover-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    background: var(--aero-card-hover);
+    border-color: var(--aero-border-bright);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+@keyframes fadeInFrame {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes badgePulse {
+    0% { box-shadow: 0 0 0 rgba(36, 94, 219, 0); }
+    50% { box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); }
+    100% { box-shadow: 0 0 0 rgba(36, 94, 219, 0); }
+}
+
+@keyframes shineEffect {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
+
+@keyframes floatingOrb {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(30px) rotate(90deg); }
+}
+
+/* Responsive Structural Breakpoints Layout Matrix updates */
+@media (max-width: 900px) {
+    .luna-grid { grid-template-columns: 1fr; }
+    .nested-flex { flex-direction: column; }
+    .luna-mainframe { padding: 25px; }
+    .text-glow { font-size: 2.4rem; }
 }
