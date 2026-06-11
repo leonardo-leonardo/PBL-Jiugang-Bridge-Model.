@@ -1,208 +1,432 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jiugang Bridge | Luna Hybrid Edition</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="luna-bg-wrapper">
-        <div class="luna-orb lo-blue"></div>
-        <div class="luna-orb lo-green"></div>
-        <div class="luna-orb lo-orange"></div>
-    </div>
+/* Color Palette Settings using classic Windows XP Palette Tones with high transparency */
+:root {
+    --luna-blue-primary: #245edb;
+    --luna-blue-light: #4a7ef2;
+    --luna-green: #10b981;
+    --luna-orange: #ff9900;
+    
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-card: rgba(255, 255, 255, 0.03);
+    --glass-card-hover: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-border-bright: rgba(255, 255, 255, 0.25);
+    
+    --text-primary: #ffffff;
+    --text-secondary: #e2e8f0;
+    --text-muted: #94a3b8;
+}
 
-    <div class="luna-mainframe animate-fade-in">
-        <header class="luna-hero">
-            <div class="badge-luna animate-pulse-glow">PBL Engineering Hub</div>
-            <h1 class="text-reveal">Jiugang Bridge</h1>
-            <p class="subtitle-luna">Interactive Scale Model Architecture & Structural Log</p>
-        </header>
+/* Base Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
 
-        <div class="luna-grid">
-            <main class="panel-left">
-                <section class="glass-card hover-lift">
-                    <h2>Project Overview</h2>
-                    <p>This interactive engineering portal tracks our technical design and physical creation of the <strong>Jiugang Bridge (舊港大橋)</strong> scale model in Hsinchu. Facing complex structural challenges, our team focused on wind resistance, weight distribution, and high-fidelity aesthetic modeling.</p>
-                </section>
+body {
+    min-height: 100vh;
+    background-color: #0b1329;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow-x: hidden;
+}
 
-                <section class="glass-card hover-lift spec-section">
-                    <h2>Structural Data Analytics</h2>
-                    <div class="nested-flex">
-                        <div class="glass-card-sub spec-real">
-                            <div class="spec-header">Real Bridge Dimensions</div>
-                            <div class="stat-row"><span>Span Length</span><span class="metric">300 m</span></div>
-                            <div class="stat-row"><span>Deck Width</span><span class="metric">16 m</span></div>
-                            <div class="stat-row"><span>Tower Height</span><span class="metric">9 m</span></div>
-                        </div>
-                        <div class="glass-card-sub spec-model">
-                            <div class="spec-header">Our 1:140 Scale Model</div>
-                            <div class="stat-row"><span>Total Length</span><span class="metric">205 cm</span></div>
-                            <div class="stat-row"><span>Roadway Span</span><span class="metric">215 cm</span></div>
-                            <div class="stat-row"><span>Deck Clearance</span><span class="metric">12 cm</span></div>
-                            <div class="stat-row"><span>Pylon Towers</span><span class="metric">43 cm</span></div>
-                            <div class="stat-row"><span>Model Width</span><span class="metric">14 cm</span></div>
-                        </div>
-                    </div>
-                </section>
-            </main>
+/* Background Engine - Fluid Moving Colored Blur Rings */
+.luna-bg-wrapper {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
 
-            <aside class="panel-right">
-                <div class="glass-card img-interactive hover-lift">
-                    <div class="img-sheen">
-                        <img src="image_3cd47a.jpg" alt="Jiugang Bridge Model Under Construction" class="model-view-img">
-                    </div>
-                    <div class="img-meta">
-                        <h3>Structural Base Assembly</h3>
-                        <p>Constructing the supporting foundation, pillars, and primary pylon towers.</p>
-                    </div>
-                </div>
+.luna-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(130px);
+    mix-blend-mode: screen;
+    animation: floatingOrb 20s infinite alternate ease-in-out;
+}
 
-                <div class="glass-card img-interactive hover-lift">
-                    <div class="img-sheen">
-                        <img src="image_3cd456.jpg" alt="Jiugang Bridge Model Complete Top View" class="model-view-img">
-                    </div>
-                    <div class="img-meta">
-                        <h3>Finished Architectural Deck</h3>
-                        <p>Top-down view displaying precise scale alignment and surface details.</p>
-                    </div>
-                </div>
-            </aside>
-        </div>
+.lo-blue { width: 700px; height: 700px; background: rgba(36, 94, 219, 0.45); top: -10%; left: -5%; }
+.lo-green { width: 650px; height: 650px; background: rgba(46, 139, 87, 0.25); bottom: -15%; right: -5%; animation-delay: -5s; }
+.lo-orange { width: 500px; height: 500px; background: rgba(255, 153, 0, 0.15); top: 35%; left: 55%; animation-delay: -10s; }
 
-        <section class="glass-card hover-lift table-section">
-            <h2>Bill of Materials (BOM)</h2>
-            <div class="glass-table-scroller">
-                <table class="luna-table">
-                    <thead>
-                        <tr>
-                            <th>Component System</th>
-                            <th>Allocation</th>
-                            <th>Engineering Function</th>
-                            <th>Aesthetic Reference</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Scale Runway Lamps</strong></td>
-                            <td><span class="qty-pill">10 &times; 2</span></td>
-                            <td>Simulates real-world deck lighting patterns.</td>
-                            <td><div class="table-img-box"><img src="image_3cd4b7.png" alt="Scale Lights and Power Array Source"></div></td>
-                        </tr>
-                        <tr>
-                            <td><strong>AA DC Power Array</strong></td>
-                            <td><span class="qty-pill">15 Units</span></td>
-                            <td>Supplies energy loops to active sub-deck grids.</td>
-                            <td><div class="table-img-box"><img src="image_3cd4b7.png" alt="Scale Lights and Power Array Source"></div></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Warm LED Illumination Strips</strong></td>
-                            <td><span class="qty-pill">2 - 3 Meters</span></td>
-                            <td>Underside mounting for deep ambient structural visibility.</td>
-                            <td><div class="table-img-box"><img src="image_3cd4b7.png" alt="Scale Lights and Power Array Source"></div></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Topographic Greenery (Sponge)</strong></td>
-                            <td><span class="qty-pill">100 Grams</span></td>
-                            <td>Forms organic environment profiles along the structural banks.</td>
-                            <td><div class="table-img-box"><img src="image_3cd47a.jpg" alt="Landscape Foam Details"></div></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+/* Master Glass Framework Chassis */
+.luna-mainframe {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1100px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    padding: 50px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7),
+                inset 0 1px 2px rgba(255, 255, 255, 0.15);
+}
 
-        <section class="glass-card hover-lift">
-            <h2>Engineering Lifecycle Timeline</h2>
-            <div class="luna-timeline">
-                
-                <div class="timeline-node">
-                    <div class="node-indicator"></div>
-                    <div class="node-body">
-                        <span class="node-step">Phase 01</span>
-                        <h3>Discovery & Initial Selection</h3>
-                        <p><strong>Action Log:</strong> Surveyed Old Port Island topography. Found two bridge channels and started analyzing the architectural layout of Baidi Bridge.</p>
-                        <div class="node-rationale">Establishing a concrete project focus. Collaboration was critical to map objectives before engineering.</div>
-                    </div>
-                </div>
+/* Header Elements */
+.luna-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
 
-                <div class="timeline-node">
-                    <div class="node-indicator"></div>
-                    <div class="node-body">
-                        <span class="node-step">Phase 02</span>
-                        <h3>Geometric Pivot Matrix</h3>
-                        <p><strong>Action Log:</strong> Measured Baidi Bridge scale properties. Found length-to-width ratios unsuitable for model building, leading to a pivot toward Jiugang Bridge.</p>
-                        <div class="node-rationale">Real-world metrics determined the original bridge choice was structurally impractical for a table prototype.</div>
-                    </div>
-                </div>
+.badge-luna {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(36, 94, 219, 0.15);
+    border: 1px solid rgba(36, 94, 219, 0.4);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #60a5fa;
+    margin-bottom: 20px;
+}
 
-                <div class="timeline-node">
-                    <div class="node-indicator"></div>
-                    <div class="node-body">
-                        <span class="node-step">Phase 03</span>
-                        <h3>Foundational Towers & Core Anchors</h3>
-                        <p><strong>Action Log:</strong> Built the fundamental bridge platform, erecting structural support columns and main cable pylons.</p>
-                        <div class="node-rationale">Provides the load-bearing foundation needed to withstand weight from secondary bridge deck elements.</div>
-                    </div>
-                </div>
+.subtitle-luna {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.85;
+}
 
-                <div class="timeline-node">
-                    <div class="node-indicator"></div>
-                    <div class="node-body">
-                        <span class="node-step">Phase 04</span>
-                        <h3>Color Separation Engineering</h3>
-                        <p><strong>Action Log:</strong> Transferred framework to work lab for surface finishing. Applied targeted paints to visually separate architectural components.</p>
-                        <div class="node-rationale">Improves visual clarity during data reviews while providing a clean, professional finish.</div>
-                    </div>
-                </div>
+/* Responsive Grid System Layout */
+.luna-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 30px;
+}
 
-                <div class="timeline-node">
-                    <div class="node-indicator"></div>
-                    <div class="node-body">
-                        <span class="node-step">Phase 05</span>
-                        <h3>Main Runway Integration</h3>
-                        <p><strong>Action Log:</strong> Balanced and permanently bonded the main vehicle deck across the load pillars.</p>
-                        <div class="node-rationale">The deck is the primary platform; secure alignment ensures correct load paths and path structure.</div>
-                    </div>
-                </div>
+/* Transparency Cards */
+.glass-card {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+}
 
-                <div class="timeline-node">
-                    <div class="node-indicator"></div>
-                    <div class="node-body">
-                        <span class="node-step">Phase 06</span>
-                        <h3>Cabling & Environmental Rendering</h3>
-                        <p><strong>Action Log:</strong> Configured structural high-tension wires, safety guards, and shore topography using green sponges.</p>
-                        <div class="node-rationale">Increases physical model accuracy compared to the real Hsinchu site for better presentation engagement.</div>
-                    </div>
-                </div>
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-                <div class="timeline-node">
-                    <div class="node-indicator"></div>
-                    <div class="node-body">
-                        <span class="node-step">Phase 07</span>
-                        <h3>Empirical Loading Tests</h3>
-                        <p><strong>Action Log:</strong> Loaded micro-weights across different segments of the bridge structure to check for deflection or faults.</p>
-                        <div class="node-rationale">Isolates structural stress weaknesses, allowing us to implement reinforcement before final exhibition.</div>
-                    </div>
-                </div>
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff;
+    border-left: 4px solid var(--luna-blue-primary);
+    padding-left: 12px;
+}
 
-                <div class="timeline-node">
-                    <div class="node-indicator"></div>
-                    <div class="node-body">
-                        <span class="node-step">Phase 08</span>
-                        <h3>Exhibition Deployment</h3>
-                        <p><strong>Action Log:</strong> Compiled technical field data into public display layouts and practiced presentation delivery.</p>
-                        <div class="node-rationale">Translates raw structural engineering calculations into clear concepts for evaluators.</div>
-                    </div>
-                </div>
+p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+}
 
-            </div>
-        </section>
+/* Data Blocks Styles */
+.nested-flex {
+    display: flex;
+    gap: 20px;
+}
 
-        <footer class="luna-footer">
-            <p>Project-Based Learning Engineering Repository &bull; Powered by GitHub Pages</p>
-        </footer>
-    </div>
-</body>
-</html>
+.glass-card-sub {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.spec-header {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+}
+
+.spec-real .spec-header { color: var(--luna-orange); border-bottom: 1px solid rgba(255, 153, 0, 0.2); }
+.spec-model .spec-header { color: var(--luna-green); border-bottom: 1px solid rgba(16, 185, 129, 0.2); }
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-row span { color: var(--text-muted); }
+.stat-row .metric { color: #ffffff; font-weight: 600; }
+
+/* Interactive Sheen Image Cards */
+.img-interactive {
+    padding: 12px;
+    cursor: pointer;
+}
+
+.img-sheen {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.img-sheen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-20deg);
+}
+
+.img-interactive:hover .img-sheen::after {
+    animation: shineEffect 0.8s ease-out;
+}
+
+.model-view-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.img-interactive:hover .model-view-img {
+    transform: scale(1.03);
+}
+
+.img-meta { padding: 15px 10px 5px 10px; }
+.img-meta h3 { font-size: 1.1rem; margin-bottom: 5px; }
+.img-meta p { font-size: 0.9rem; color: var(--text-muted); }
+
+/* Table Scroller Viewports */
+.glass-table-scroller {
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.luna-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.luna-table th {
+    background: rgba(36, 94, 219, 0.08);
+    padding: 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #94a3b8;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.luna-table td {
+    padding: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.qty-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border-bright);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.table-img-box {
+    width: 55px;
+    height: 42px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+
+.table-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Linear Interactive Progress Timelines */
+.luna-timeline {
+    position: relative;
+    padding-left: 35px;
+    margin-top: 20px;
+}
+
+.luna-timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 10px;
+    width: 2px;
+    height: calc(100% - 20px);
+    background: linear-gradient(to bottom, var(--luna-blue-primary), var(--luna-green), transparent);
+}
+
+.timeline-node {
+    position: relative;
+    margin-bottom: 35px;
+}
+.timeline-node:last-child { margin-bottom: 0; }
+
+.node-indicator {
+    position: absolute;
+    left: -35px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: #0b1329;
+    border: 3px solid var(--luna-blue-light);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--luna-blue-light);
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.timeline-node:hover .node-indicator {
+    background: var(--luna-orange);
+    border-color: var(--luna-orange);
+    box-shadow: 0 0 15px var(--luna-orange);
+}
+
+.node-body {
+    background: rgba(255, 255, 255, 0.005);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.timeline-node:hover .node-body {
+    border-color: var(--glass-border-bright);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.node-step {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #60a5fa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.node-body h3 {
+    font-size: 1.25rem;
+    margin: 4px 0 12px 0;
+}
+
+.node-rationale {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.06);
+    font-size: 0.95rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+.node-rationale::before {
+    content: "Engineering Rationale: ";
+    font-weight: 600;
+    color: #94a3b8;
+    font-style: normal;
+}
+
+/* Footers Elements */
+.luna-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* --- ANIMATION LAYERS ENGINE --- */
+.animate-fade-in {
+    animation: fadeInFrame 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.text-reveal {
+    animation: slideUpReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+    animation: badgePulse 3s infinite ease-in-out;
+}
+
+.hover-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    background: var(--glass-card-hover);
+    border-color: var(--glass-border-bright);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+@keyframes fadeInFrame {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpReveal {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes badgePulse {
+    0% { box-shadow: 0 0 10px rgba(36, 94, 219, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(36, 94, 219, 0.5); border-color: rgba(36, 94, 219, 0.6); }
+    100% { box-shadow: 0 0 10px rgba(36, 94, 219, 0.2); }
+}
+
+@keyframes shineEffect {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
+
+@keyframes floatingOrb {
+    0% { transform: translateY(0px) scale(1); }
+    100% { transform: translateY(40px) scale(1.1); }
+}
+
+/* Viewport Adjustments */
+@media (max-width: 900px) {
+    .luna-grid { grid-template-columns: 1fr; }
+    .nested-flex { flex-direction: column; }
+    .luna-mainframe { padding: 30px; }
+    h1 { font-size: 2.5rem; }
+}
