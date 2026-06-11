@@ -1,17 +1,16 @@
-/* Windows XP Luna Palette Definitions mixed with Soft Aero Transparency */
+/* Windows XP Luna Palette & Soft Aero Transparency Combination */
 :root {
     --xp-blue: #245edb;
+    --xp-blue-dark: #0046d5;
     --xp-blue-light: #5785f6;
     --xp-orange: #ff9900;
     --xp-green: #2e8b57;
     --xp-soft-beige: #ece9d8;
     
     /* Aero Glass Configurations */
-    --aero-surface: rgba(236, 233, 216, 0.45); /* Translucent XP Beige */
-    --aero-card: rgba(255, 255, 255, 0.65);
-    --aero-card-hover: rgba(255, 255, 255, 0.85);
-    --aero-border: rgba(36, 94, 219, 0.25);
-    --aero-border-bright: rgba(36, 94, 219, 0.5);
+    --aero-surface: rgba(238, 235, 220, 0.55); /* Tinted translucent XP panel look */
+    --aero-card: rgba(255, 255, 255, 0.75);
+    --aero-border: rgba(36, 94, 219, 0.4);
     
     --text-dark: #111827;
     --text-muted: #4b5563;
@@ -27,7 +26,6 @@
 
 body {
     min-height: 100vh;
-    background-color: #3b66c4; /* Base XP Desktop Blue Fallback */
     color: var(--text-dark);
     display: flex;
     justify-content: center;
@@ -46,14 +44,13 @@ body {
     left: 0;
     z-index: 1;
     overflow: hidden;
-    background: linear-gradient(135deg, #245edb 0%, #5785f6 50%, #80af20 100%); /* The Bliss Palette */
+    background: linear-gradient(135deg, #245edb 0%, #5785f6 50%, #80af20 100%);
 }
 
 .aero-blur-orb {
     position: absolute;
     border-radius: 50%;
     filter: blur(100px);
-    mix-blend-mode: normal;
     opacity: 0.6;
     animation: floatingOrb 25s infinite alternate ease-in-out;
 }
@@ -69,210 +66,196 @@ body {
     width: 100%;
     max-width: 1100px;
     background: var(--aero-surface);
-    backdrop-filter: blur(35px) saturate(170%);
-    -webkit-backdrop-filter: blur(35px) saturate(170%);
-    border: 2px solid var(--xp-blue);
-    border-radius: 24px;
-    padding: 50px;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35),
-                inset 0 1px 4px rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    border: 3px solid var(--xp-blue-dark);
+    border-radius: 12px;
+    padding: 45px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
 }
 
-/* Hero Section Typography Header rules */
+/* Hero Section */
 .luna-hero {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
+/* Iconic Blue Rounded XP Button Style Badge */
 .badge-luna {
     display: inline-block;
-    padding: 5px 14px;
-    background: var(--xp-blue);
+    padding: 6px 18px;
+    background: linear-gradient(to bottom, #5785f6 0%, #245edb 50%, #0046d5 100%);
     border: 1px solid #ffffff;
-    border-radius: 100px;
-    font-size: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
     font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     color: #ffffff;
-    box-shadow: 0 4px 10px rgba(36, 94, 219, 0.3);
+    box-shadow: inset 0 1px 1px #ffffff, 2px 2px 5px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 }
 
 .text-glow {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     font-weight: 800;
     color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0, 70, 213, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
-    margin-top: 10px;
+    text-shadow: 2px 2px 6px rgba(0, 70, 213, 0.8);
+    margin-top: 15px;
 }
 
 .subtitle-luna {
     color: #ffffff;
-    font-size: 1.15rem;
-    font-weight: 500;
+    font-size: 1.1rem;
     margin-top: 8px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* Work Grid Setup */
 .luna-grid {
     display: grid;
     grid-template-columns: 1.25fr 0.75fr;
-    gap: 30px;
+    gap: 25px;
 }
 
-/* Clean Translucent XP-Styled Cards */
+/* Cards styled with XP panel frames */
 .glass-card {
     background: var(--aero-card);
-    border: 1px solid var(--aero-border);
-    border-radius: 16px;
-    padding: 35px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-h2 {
-    font-size: 1.45rem;
+.xp-border-style {
+    border: 2px solid var(--aero-border);
+    border-radius: 8px;
+}
+
+/* Left-bordered XP Style Headers */
+.xp-section-header {
+    font-size: 1.3rem;
     font-weight: bold;
-    margin-bottom: 20px;
-    color: var(--xp-blue);
+    margin-bottom: 18px;
+    color: var(--xp-blue-dark);
     border-bottom: 2px solid var(--xp-soft-beige);
-    padding-bottom: 6px;
+    padding-bottom: 4px;
 }
 
 p {
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: var(--text-dark);
 }
 
 /* Nested Metric Statistics Blocks Layout modules */
 .nested-flex {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .glass-card-sub {
     flex: 1;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid var(--xp-soft-beige);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.05);
 }
+
+/* XP Color Accented Borders for Data Boxes */
+.xp-box-orange { border: 2px solid var(--xp-orange); }
+.xp-box-green { border: 2px solid var(--xp-green); }
 
 .spec-header {
     font-size: 0.85rem;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
-    padding-bottom: 6px;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
 }
-
-.spec-real .spec-header { color: #d97706; border-bottom: 1px solid rgba(217, 119, 6, 0.2); }
-.spec-model .spec-header { color: var(--xp-green); border-bottom: 1px solid rgba(46, 139, 87, 0.2); }
+.xp-box-orange .spec-header { color: #d97706; border-bottom: 1px solid rgba(217, 119, 6, 0.2); }
+.xp-box-green .spec-header { color: var(--xp-green); border-bottom: 1px solid rgba(46, 139, 87, 0.2); }
 
 .stat-row {
     display: flex;
     justify-content: space-between;
-    font-size: 0.95rem;
-    padding: 7px 0;
+    font-size: 0.9rem;
+    padding: 6px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 .stat-row:last-child { border-bottom: none; }
 .stat-row span { color: var(--text-muted); }
 .stat-row .metric { color: var(--text-dark); font-weight: bold; }
 
-/* Image Presentations Grid Frame animations handles */
+/* Image Presentations */
 .img-interactive {
-    padding: 12px;
-    cursor: pointer;
+    padding: 10px;
 }
 
 .img-sheen {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid var(--xp-soft-beige);
-}
-
-.img-sheen::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transform: skewX(-20deg);
-}
-
-.img-interactive:hover .img-sheen::after {
-    animation: shineEffect 0.8s ease-out;
+    border-radius: 4px;
+    border: 1px solid var(--aero-border);
 }
 
 .model-view-img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.4s ease;
 }
 
-.img-interactive:hover .model-view-img {
-    transform: scale(1.02);
-}
-
-.img-meta { padding: 15px 8px 4px 8px; }
-.img-meta h3 { font-size: 1.1rem; margin-bottom: 4px; color: var(--xp-blue); }
-.img-meta p { font-size: 0.9rem; color: var(--text-muted); }
+.img-meta { padding: 12px 6px 2px 6px; }
+.img-meta h3 { font-size: 1.05rem; margin-bottom: 4px; color: var(--xp-blue-dark); }
+.img-meta p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
 
 /* Material Matrix Sheet Display Tables rules */
 .glass-table-scroller {
     overflow-x: auto;
-    border-radius: 12px;
-    border: 1px solid var(--xp-soft-beige);
-    background: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    border: 1px solid var(--aero-border);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .luna-table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .luna-table th {
-    background: rgba(36, 94, 219, 0.08);
-    padding: 16px;
+    background: linear-gradient(to bottom, #ffffff 0%, var(--xp-soft-beige) 100%);
+    padding: 12px;
     font-weight: bold;
-    color: var(--xp-blue);
-    border-bottom: 2px solid var(--xp-soft-beige);
+    color: #333333;
+    border-bottom: 2px solid var(--aero-border);
+    border-right: 1px solid var(--xp-soft-beige);
 }
 
 .luna-table td {
-    padding: 16px;
+    padding: 12px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.02);
 }
 
+/* XP Olive Green Style Allocation Pills */
 .qty-pill {
-    background: rgba(36, 94, 219, 0.05);
-    border: 1px solid var(--aero-border-bright);
+    background: linear-gradient(to bottom, #aed16a 0%, #80af20 50%, #5d8212 100%);
+    border: 1px solid #ffffff;
     padding: 3px 8px;
     border-radius: 4px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: bold;
-    color: var(--xp-blue);
+    color: #ffffff;
+    display: inline-block;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 }
 
 .table-img-box {
-    width: 55px;
-    height: 40px;
-    border-radius: 4px;
+    width: 50px;
+    height: 38px;
+    border-radius: 2px;
     overflow: hidden;
-    border: 1px solid var(--xp-soft-beige);
+    border: 1px solid var(--aero-border);
 }
 
 .table-img-box img {
@@ -281,10 +264,10 @@ p {
     object-fit: cover;
 }
 
-/* Engineering Progression Progress Tracks Timelines */
+/* Engineering Progress Tracks Timelines */
 .luna-timeline {
     position: relative;
-    padding-left: 35px;
+    padding-left: 30px;
     margin-top: 15px;
 }
 
@@ -296,67 +279,52 @@ p {
     width: 3px;
     height: calc(100% - 16px);
     background: linear-gradient(to bottom, var(--xp-blue), var(--xp-green), var(--xp-orange));
-    border-radius: 2px;
 }
 
 .timeline-node {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 .timeline-node:last-child { margin-bottom: 0; }
 
 .node-indicator {
     position: absolute;
-    left: -35px;
+    left: -30px;
     top: 6px;
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     background: #ffffff;
-    border: 3.5px solid var(--xp-blue);
+    border: 3px solid var(--xp-blue-dark);
     border-radius: 50%;
     z-index: 5;
-    transition: all 0.25s ease;
 }
 
-.timeline-node:hover .node-indicator {
-    background: var(--xp-orange);
-    border-color: var(--xp-orange);
-    transform: scale(1.25);
-}
-
-.node-body {
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 12px;
-    padding: 20px;
-    transition: all 0.3s ease;
-}
-
-.timeline-node:hover .node-body {
-    border-color: var(--aero-border-bright);
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+/* Individual Boxes along Timeline */
+.xp-timeline-box {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--aero-border);
+    border-radius: 6px;
+    padding: 18px;
 }
 
 .node-step {
     font-size: 0.75rem;
     font-weight: bold;
-    color: var(--xp-green);
-    letter-spacing: 0.5px;
+    color: var(--xp-blue-dark);
     text-transform: uppercase;
 }
 
 .node-body h3 {
-    font-size: 1.15rem;
-    margin: 3px 0 10px 0;
-    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin: 2px 0 8px 0;
+    color: #000000;
 }
 
 .node-rationale {
     margin-top: 10px;
-    padding-top: 10px;
+    padding-top: 8px;
     border-top: 1px dashed rgba(0, 0, 0, 0.1);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #4b5563;
     font-style: italic;
 }
@@ -364,69 +332,40 @@ p {
 .node-rationale::before {
     content: "Engineering Rationale: ";
     font-weight: bold;
-    color: var(--xp-blue);
+    color: var(--xp-blue-dark);
     font-style: normal;
 }
 
 /* Page Footers */
 .luna-footer {
     text-align: center;
-    margin-top: 35px;
-    padding-top: 20px;
+    margin-top: 30px;
+    padding-top: 15px;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-/* --- MOTION CAPTURE CORE INTERACTION ENGINE --- */
+/* Animations Elements */
 .animate-fade-in {
-    animation: fadeInFrame 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-pulse-glow {
-    animation: badgePulse 2.5s infinite ease-in-out;
-}
-
-.hover-lift {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.4s ease,
-                border-color 0.4s ease,
-                box-shadow 0.4s ease;
-}
-
-.hover-lift:hover {
-    transform: translateY(-4px);
-    background: var(--aero-card-hover);
-    border-color: var(--aero-border-bright);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+    animation: fadeInFrame 0.6s ease-out forwards;
 }
 
 @keyframes fadeInFrame {
-    0% { opacity: 0; transform: translateY(15px); }
+    0% { opacity: 0; transform: translateY(10px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes badgePulse {
-    0% { box-shadow: 0 0 0 rgba(36, 94, 219, 0); }
-    50% { box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); }
-    100% { box-shadow: 0 0 0 rgba(36, 94, 219, 0); }
-}
-
-@keyframes shineEffect {
-    0% { left: -150%; }
-    100% { left: 150%; }
-}
-
 @keyframes floatingOrb {
-    0% { transform: translateY(0px) rotate(0deg); }
-    100% { transform: translateY(30px) rotate(90deg); }
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(25px); }
 }
 
-/* Responsive Structural Breakpoints Layout Matrix updates */
+/* Responsive Viewports */
 @media (max-width: 900px) {
     .luna-grid { grid-template-columns: 1fr; }
     .nested-flex { flex-direction: column; }
     .luna-mainframe { padding: 25px; }
-    .text-glow { font-size: 2.4rem; }
+    .text-glow { font-size: 2.3rem; }
 }
