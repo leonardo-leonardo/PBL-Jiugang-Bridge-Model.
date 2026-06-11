@@ -1,371 +1,208 @@
-/* Windows XP Luna Palette & Soft Aero Transparency Combination */
-:root {
-    --xp-blue: #245edb;
-    --xp-blue-dark: #0046d5;
-    --xp-blue-light: #5785f6;
-    --xp-orange: #ff9900;
-    --xp-green: #2e8b57;
-    --xp-soft-beige: #ece9d8;
-    
-    /* Aero Glass Configurations */
-    --aero-surface: rgba(238, 235, 220, 0.55); /* Tinted translucent XP panel look */
-    --aero-card: rgba(255, 255, 255, 0.75);
-    --aero-border: rgba(36, 94, 219, 0.4);
-    
-    --text-dark: #111827;
-    --text-muted: #4b5563;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiugang Bridge | XP Luna Hybrid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="luna-ambient-bg">
+        <div class="aero-blur-orb orb-xp-blue"></div>
+        <div class="aero-blur-orb orb-xp-green"></div>
+        <div class="aero-blur-orb orb-xp-orange"></div>
+    </div>
 
-/* Base Setup */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Tahoma", "Segoe UI", system-ui, sans-serif;
-}
+    <div class="luna-mainframe animate-fade-in">
+        <header class="luna-hero">
+            <div class="badge-luna">PBL Engineering Hub</div>
+            <h1 class="text-glow">Jiugang Bridge</h1>
+            <p class="subtitle-luna">Interactive Scale Model Architecture & Structural Log</p>
+        </header>
 
-body {
-    min-height: 100vh;
-    color: var(--text-dark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    position: relative;
-    overflow-x: hidden;
-}
+        <div class="luna-grid">
+            <main class="panel-left">
+                <section class="glass-card xp-border-style">
+                    <h2 class="xp-section-header">Project Overview</h2>
+                    <p>This interactive engineering portal tracks our technical design and physical creation of the <strong>Jiugang Bridge (舊港大橋)</strong> scale model in Hsinchu. Facing complex structural challenges, our team focused on wind resistance, weight distribution, and high-fidelity aesthetic modeling.</p>
+                </section>
 
-/* Background Layers Engine - Translucent Windows Aero over XP Bliss Colors */
-.luna-ambient-bg {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    overflow: hidden;
-    background: linear-gradient(135deg, #245edb 0%, #5785f6 50%, #80af20 100%);
-}
+                <section class="glass-card xp-border-style spec-section">
+                    <h2 class="xp-section-header">Structural Data Analytics</h2>
+                    <div class="nested-flex">
+                        <div class="glass-card-sub xp-box-orange">
+                            <div class="spec-header">Real Bridge Dimensions</div>
+                            <div class="stat-row"><span>Span Length</span><span class="metric">300 m</span></div>
+                            <div class="stat-row"><span>Deck Width</span><span class="metric">16 m</span></div>
+                            <div class="stat-row"><span>Tower Height</span><span class="metric">9 m</span></div>
+                        </div>
+                        <div class="glass-card-sub xp-box-green">
+                            <div class="spec-header">Our 1:140 Scale Model</div>
+                            <div class="stat-row"><span>Total Length</span><span class="metric">205 cm</span></div>
+                            <div class="stat-row"><span>Roadway Span</span><span class="metric">215 cm</span></div>
+                            <div class="stat-row"><span>Deck Clearance</span><span class="metric">12 cm</span></div>
+                            <div class="stat-row"><span>Pylon Towers</span><span class="metric">43 cm</span></div>
+                            <div class="stat-row"><span>Model Width</span><span class="metric">14 cm</span></div>
+                        </div>
+                    </div>
+                </section>
+            </main>
 
-.aero-blur-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.6;
-    animation: floatingOrb 25s infinite alternate ease-in-out;
-}
+            <aside class="panel-right">
+                <div class="glass-card xp-border-style img-interactive">
+                    <div class="img-sheen">
+                        <img src="image_3cd47a.jpg" alt="Jiugang Bridge Model Under Construction" class="model-view-img">
+                    </div>
+                    <div class="img-meta">
+                        <h3>Structural Base Assembly</h3>
+                        <p>Constructing the supporting foundation, pillars, and primary pylon towers.</p>
+                    </div>
+                </div>
 
-.orb-xp-blue { width: 600px; height: 600px; background: #0046d5; top: -10%; left: -5%; }
-.orb-xp-green { width: 700px; height: 700px; background: #31a62a; bottom: -15%; right: -5%; animation-delay: -6s; }
-.orb-xp-orange { width: 450px; height: 450px; background: #ff9900; top: 25%; left: 60%; animation-delay: -12s; }
+                <div class="glass-card xp-border-style img-interactive">
+                    <div class="img-sheen">
+                        <img src="image_3cd456.jpg" alt="Jiugang Bridge Model Complete Top View" class="model-view-img">
+                    </div>
+                    <div class="img-meta">
+                        <h3>Finished Architectural Deck</h3>
+                        <p>Top-down view displaying precise scale alignment and surface details.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
 
-/* Master Chassis Framework Container with Glass Backdrop Filters */
-.luna-mainframe {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    max-width: 1100px;
-    background: var(--aero-surface);
-    backdrop-filter: blur(30px) saturate(160%);
-    -webkit-backdrop-filter: blur(30px) saturate(160%);
-    border: 3px solid var(--xp-blue-dark);
-    border-radius: 12px;
-    padding: 45px;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
-}
+        <section class="glass-card xp-border-style table-section">
+            <h2 class="xp-section-header">Bill of Materials (BOM)</h2>
+            <div class="glass-table-scroller">
+                <table class="luna-table">
+                    <thead>
+                        <tr>
+                            <th>Component System</th>
+                            <th>Allocation</th>
+                            <th>Engineering Function</th>
+                            <th>Aesthetic Reference</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Scale Runway Lamps</strong></td>
+                            <td><span class="qty-pill">10 &times; 2</span></td>
+                            <td>Simulates real-world deck lighting patterns.</td>
+                            <td><div class="table-img-box"><img src="image_3cd4b7.png" alt="Scale Lights"></div></td>
+                        </tr>
+                        <tr>
+                            <td><strong>AA DC Power Array</strong></td>
+                            <td><span class="qty-pill">15 Units</span></td>
+                            <td>Supplies energy loops to active sub-deck grids.</td>
+                            <td><div class="table-img-box"><img src="image_3cd4b7.png" alt="Power Array Source"></div></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Warm LED Illumination Strips</strong></td>
+                            <td><span class="qty-pill">2 - 3 Meters</span></td>
+                            <td>Underside mounting for deep ambient structural visibility.</td>
+                            <td><div class="table-img-box"><img src="image_3cd4b7.png" alt="LED strips"></div></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Topographic Greenery (Sponge)</strong></td>
+                            <td><span class="qty-pill">100 Grams</span></td>
+                            <td>Forms organic environment profiles along the structural banks.</td>
+                            <td><div class="table-img-box"><img src="image_3cd47a.jpg" alt="Landscape Foam Details"></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-/* Hero Section */
-.luna-hero {
-    text-align: center;
-    margin-bottom: 40px;
-}
+        <section class="glass-card xp-border-style">
+            <h2 class="xp-section-header">Engineering Lifecycle Timeline</h2>
+            <div class="luna-timeline">
+                
+                <div class="timeline-node">
+                    <div class="node-indicator"></div>
+                    <div class="node-body xp-timeline-box">
+                        <span class="node-step">Phase 01</span>
+                        <h3>Discovery & Initial Selection</h3>
+                        <p><strong>Action Log:</strong> Surveyed Old Port Island topography. Found two bridge channels and started analyzing the architectural layout of Baidi Bridge.</p>
+                        <div class="node-rationale">Establishing a concrete project focus. Collaboration was critical to map objectives before engineering.</div>
+                    </div>
+                </div>
 
-/* Iconic Blue Rounded XP Button Style Badge */
-.badge-luna {
-    display: inline-block;
-    padding: 6px 18px;
-    background: linear-gradient(to bottom, #5785f6 0%, #245edb 50%, #0046d5 100%);
-    border: 1px solid #ffffff;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #ffffff;
-    box-shadow: inset 0 1px 1px #ffffff, 2px 2px 5px rgba(0,0,0,0.2);
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
-}
+                <div class="timeline-node">
+                    <div class="node-indicator"></div>
+                    <div class="node-body xp-timeline-box">
+                        <span class="node-step">Phase 02</span>
+                        <h3>Geometric Pivot Matrix</h3>
+                        <p><strong>Action Log:</strong> Measured Baidi Bridge scale properties. Found length-to-width ratios unsuitable for model building, leading to a pivot toward Jiugang Bridge.</p>
+                        <div class="node-rationale">Real-world metrics determined the original bridge choice was structurally impractical for a table prototype.</div>
+                    </div>
+                </div>
 
-.text-glow {
-    font-size: 3.2rem;
-    font-weight: 800;
-    color: #ffffff;
-    text-shadow: 2px 2px 6px rgba(0, 70, 213, 0.8);
-    margin-top: 15px;
-}
+                <div class="timeline-node">
+                    <div class="node-indicator"></div>
+                    <div class="node-body xp-timeline-box">
+                        <span class="node-step">Phase 03</span>
+                        <h3>Foundational Towers & Core Anchors</h3>
+                        <p><strong>Action Log:</strong> Built the fundamental bridge platform, erecting structural support columns and main cable pylons.</p>
+                        <div class="node-rationale">Provides the load-bearing foundation needed to withstand weight from secondary bridge deck elements.</div>
+                    </div>
+                </div>
 
-.subtitle-luna {
-    color: #ffffff;
-    font-size: 1.1rem;
-    margin-top: 8px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-}
+                <div class="timeline-node">
+                    <div class="node-indicator"></div>
+                    <div class="node-body xp-timeline-box">
+                        <span class="node-step">Phase 04</span>
+                        <h3>Color Separation Engineering</h3>
+                        <p><strong>Action Log:</strong> Transferred framework to work lab for surface finishing. Applied targeted paints to visually separate architectural components.</p>
+                        <div class="node-rationale">Improves visual clarity during data reviews while providing a clean, professional finish.</div>
+                    </div>
+                </div>
 
-/* Work Grid Setup */
-.luna-grid {
-    display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
-    gap: 25px;
-}
+                <div class="timeline-node">
+                    <div class="node-indicator"></div>
+                    <div class="node-body xp-timeline-box">
+                        <span class="node-step">Phase 05</span>
+                        <h3>Main Runway Integration</h3>
+                        <p><strong>Action Log:</strong> Balanced and permanently bonded the main vehicle deck across the load pillars.</p>
+                        <div class="node-rationale">The deck is the primary platform; secure alignment ensures correct load paths and path structure.</div>
+                    </div>
+                </div>
 
-/* Cards styled with XP panel frames */
-.glass-card {
-    background: var(--aero-card);
-    padding: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
+                <div class="timeline-node">
+                    <div class="node-indicator"></div>
+                    <div class="node-body xp-timeline-box">
+                        <span class="node-step">Phase 06</span>
+                        <h3>Cabling & Environmental Rendering</h3>
+                        <p><strong>Action Log:</strong> Configured structural high-tension wires, safety guards, and shore topography using green sponges.</p>
+                        <div class="node-rationale">Increases physical model accuracy compared to the real Hsinchu site for better presentation engagement.</div>
+                    </div>
+                </div>
 
-.xp-border-style {
-    border: 2px solid var(--aero-border);
-    border-radius: 8px;
-}
+                <div class="timeline-node">
+                    <div class="node-indicator"></div>
+                    <div class="node-body xp-timeline-box">
+                        <span class="node-step">Phase 07</span>
+                        <h3>Empirical Loading Tests</h3>
+                        <p><strong>Action Log:</strong> Loaded micro-weights across different segments of the bridge structure to check for deflection or faults.</p>
+                        <div class="node-rationale">Isolates structural stress weaknesses, allowing us to implement reinforcement before final exhibition.</div>
+                    </div>
+                </div>
 
-/* Left-bordered XP Style Headers */
-.xp-section-header {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 18px;
-    color: var(--xp-blue-dark);
-    border-bottom: 2px solid var(--xp-soft-beige);
-    padding-bottom: 4px;
-}
+                <div class="timeline-node">
+                    <div class="node-indicator"></div>
+                    <div class="node-body xp-timeline-box">
+                        <span class="node-step">Phase 08</span>
+                        <h3>Exhibition Deployment</h3>
+                        <p><strong>Action Log:</strong> Compiled technical field data into public display layouts and practiced presentation delivery.</p>
+                        <div class="node-rationale">Translates raw structural engineering calculations into clear concepts for evaluators.</div>
+                    </div>
+                </div>
 
-p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--text-dark);
-}
+            </div>
+        </section>
 
-/* Nested Metric Statistics Blocks Layout modules */
-.nested-flex {
-    display: flex;
-    gap: 15px;
-}
-
-.glass-card-sub {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 5px;
-    padding: 15px;
-    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.05);
-}
-
-/* XP Color Accented Borders for Data Boxes */
-.xp-box-orange { border: 2px solid var(--xp-orange); }
-.xp-box-green { border: 2px solid var(--xp-green); }
-
-.spec-header {
-    font-size: 0.85rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    padding-bottom: 4px;
-}
-.xp-box-orange .spec-header { color: #d97706; border-bottom: 1px solid rgba(217, 119, 6, 0.2); }
-.xp-box-green .spec-header { color: var(--xp-green); border-bottom: 1px solid rgba(46, 139, 87, 0.2); }
-
-.stat-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-}
-.stat-row:last-child { border-bottom: none; }
-.stat-row span { color: var(--text-muted); }
-.stat-row .metric { color: var(--text-dark); font-weight: bold; }
-
-/* Image Presentations */
-.img-interactive {
-    padding: 10px;
-}
-
-.img-sheen {
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    border: 1px solid var(--aero-border);
-}
-
-.model-view-img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.img-meta { padding: 12px 6px 2px 6px; }
-.img-meta h3 { font-size: 1.05rem; margin-bottom: 4px; color: var(--xp-blue-dark); }
-.img-meta p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
-
-/* Material Matrix Sheet Display Tables rules */
-.glass-table-scroller {
-    overflow-x: auto;
-    border-radius: 4px;
-    border: 1px solid var(--aero-border);
-    background: rgba(255, 255, 255, 0.95);
-}
-
-.luna-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    font-size: 0.85rem;
-}
-
-.luna-table th {
-    background: linear-gradient(to bottom, #ffffff 0%, var(--xp-soft-beige) 100%);
-    padding: 12px;
-    font-weight: bold;
-    color: #333333;
-    border-bottom: 2px solid var(--aero-border);
-    border-right: 1px solid var(--xp-soft-beige);
-}
-
-.luna-table td {
-    padding: 12px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    border-right: 1px solid rgba(0, 0, 0, 0.02);
-}
-
-/* XP Olive Green Style Allocation Pills */
-.qty-pill {
-    background: linear-gradient(to bottom, #aed16a 0%, #80af20 50%, #5d8212 100%);
-    border: 1px solid #ffffff;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #ffffff;
-    display: inline-block;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-}
-
-.table-img-box {
-    width: 50px;
-    height: 38px;
-    border-radius: 2px;
-    overflow: hidden;
-    border: 1px solid var(--aero-border);
-}
-
-.table-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Engineering Progress Tracks Timelines */
-.luna-timeline {
-    position: relative;
-    padding-left: 30px;
-    margin-top: 15px;
-}
-
-.luna-timeline::before {
-    content: '';
-    position: absolute;
-    left: 6px;
-    top: 8px;
-    width: 3px;
-    height: calc(100% - 16px);
-    background: linear-gradient(to bottom, var(--xp-blue), var(--xp-green), var(--xp-orange));
-}
-
-.timeline-node {
-    position: relative;
-    margin-bottom: 25px;
-}
-.timeline-node:last-child { margin-bottom: 0; }
-
-.node-indicator {
-    position: absolute;
-    left: -30px;
-    top: 6px;
-    width: 12px;
-    height: 12px;
-    background: #ffffff;
-    border: 3px solid var(--xp-blue-dark);
-    border-radius: 50%;
-    z-index: 5;
-}
-
-/* Individual Boxes along Timeline */
-.xp-timeline-box {
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid var(--aero-border);
-    border-radius: 6px;
-    padding: 18px;
-}
-
-.node-step {
-    font-size: 0.75rem;
-    font-weight: bold;
-    color: var(--xp-blue-dark);
-    text-transform: uppercase;
-}
-
-.node-body h3 {
-    font-size: 1.1rem;
-    margin: 2px 0 8px 0;
-    color: #000000;
-}
-
-.node-rationale {
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px dashed rgba(0, 0, 0, 0.1);
-    font-size: 0.85rem;
-    color: #4b5563;
-    font-style: italic;
-}
-
-.node-rationale::before {
-    content: "Engineering Rationale: ";
-    font-weight: bold;
-    color: var(--xp-blue-dark);
-    font-style: normal;
-}
-
-/* Page Footers */
-.luna-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    font-size: 0.8rem;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-/* Animations Elements */
-.animate-fade-in {
-    animation: fadeInFrame 0.6s ease-out forwards;
-}
-
-@keyframes fadeInFrame {
-    0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes floatingOrb {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(25px); }
-}
-
-/* Responsive Viewports */
-@media (max-width: 900px) {
-    .luna-grid { grid-template-columns: 1fr; }
-    .nested-flex { flex-direction: column; }
-    .luna-mainframe { padding: 25px; }
-    .text-glow { font-size: 2.3rem; }
-}
+        <footer class="luna-footer">
+            <p>Project-Based Learning Engineering Repository &bull; hosted via GitHub Pages</p>
+        </footer>
+    </div>
+</body>
+</html>
