@@ -1,1 +1,335 @@
 
+/* Custom Variable Configuration */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-highlight: rgba(255, 255, 255, 0.25);
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --accent-glow: #3b82f6;
+}
+
+/* Core Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #0b132b;
+    background-image: radial-gradient(at 0% 0%, #1c2541 0px, transparent 50%),
+                      radial-gradient(at 100% 100%, #111d4a 0px, transparent 50%);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 40px 20px;
+    overflow-x: hidden;
+}
+
+/* Ambient Backdrop Glows for Glass Refraction */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.45;
+}
+.orb-1 { width: 500px; height: 500px; background: #6366f1; top: -10%; left: -10%; }
+.orb-2 { width: 600px; height: 600px; background: #3b82f6; bottom: -20%; right: -10%; }
+.orb-3 { width: 400px; height: 400px; background: #d946ef; top: 40%; left: 70%; }
+
+/* Main Glass Vessel */
+.glass-shell {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1000px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* Typography & Layout Elements */
+.hero-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.badge {
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #60a5fa;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-top: 8px;
+}
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.3px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 30px;
+    height: 2px;
+    background: var(--accent-glow);
+    border-radius: 2px;
+}
+
+.section-wrapper {
+    margin-top: 50px;
+}
+
+/* 2-Column Overview Layout */
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+p {
+    color: #e5e7eb;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Graphic Presentation Frame */
+.image-frame-container {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    padding: 10px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.showcase-img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.caption {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+/* Structural Spec Elements */
+.stats-container {
+    display: flex;
+    gap: 25px;
+}
+
+.stats-card {
+    flex: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 25px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.stats-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.stats-card ul {
+    list-style: none;
+}
+
+.stats-card li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stats-card li:last-child {
+    border-bottom: none;
+}
+
+.stats-card .label {
+    color: var(--text-muted);
+}
+
+.stats-card .val {
+    font-weight: 600;
+}
+
+.real-spec h3 { border-left: 3px solid #f59e0b; padding-left: 8px; }
+.model-spec h3 { border-left: 3px solid #10b981; padding-left: 8px; }
+
+/* Elegant Transparent Table Architecture */
+.table-scroll-wrapper {
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid var(--glass-border);
+}
+
+.glass-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.glass-table th {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-table td {
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: #e5e7eb;
+}
+
+.glass-table tr:last-child td {
+    border-bottom: none;
+}
+
+.semi-bold { font-weight: 600; }
+
+.table-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--glass-border);
+    background: rgba(0,0,0,0.3);
+}
+
+/* Engineering Steps Timeline Layout */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-glow) 0%, var(--glass-border) 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.step-num {
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    background: #0b132b;
+    border: 2px solid var(--accent-glow);
+    border-radius: 50%;
+    font-size: 0.65rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-glow);
+    z-index: 6;
+}
+
+.timeline-content {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    padding: 20px 25px;
+    border-radius: 14px;
+}
+
+.timeline-content h4 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.rationale {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    font-size: 0.95rem;
+    color: #9ca3af;
+}
+
+.glass-footer {
+    margin-top: 60px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Responsiveness Configurations */
+@media (max-width: 768px) {
+    .grid-2col { grid-template-columns: 1fr; }
+    .stats-container { flex-direction: column; }
+    .glass-shell { padding: 25px; }
+    h1 { font-size: 2.2rem; }
+}
